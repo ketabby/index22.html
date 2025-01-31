@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Teacher Portal</title>
-  <link rel="stylesheet" href="style.css"> <!-- Make sure to link your CSS file -->
+  <link rel="stylesheet" href="style.css"> <!-- Link to external CSS -->
   <style>
     * {
       margin: 0;
@@ -159,6 +159,35 @@
       right: -5px;
     }
 
+    /* Login Form */
+    .login-form {
+      margin-left: 220px;
+      padding: 20px;
+    }
+
+    .login-form input {
+      display: block;
+      margin: 10px 0;
+      padding: 10px;
+      width: 200px;
+    }
+
+    /* Banner */
+    .banner {
+      width: 100%;
+      height: 6cm; /* Height of the banner */
+      background-color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .banner img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
     /* Footer */
     footer {
       background-color: #1f1f2e;
@@ -231,6 +260,24 @@
     </div>
   </div>
 
+  <!-- Login Form -->
+  <div class="login-form">
+    <h2>Login</h2>
+    <form id="loginForm">
+      <label for="username">Username</label>
+      <input type="text" id="username" name="username" placeholder="Enter your username">
+      <label for="password">Password</label>
+      <input type="password" id="password" name="password" placeholder="Enter your password">
+      <input type="submit" value="Login">
+    </form>
+    <p id="error-message" style="color: red;"></p>
+  </div>
+
+  <!-- Banner -->
+  <div class="banner">
+    <img src="gulf.gif" alt="Gulf Banner">
+  </div>
+
   <!-- Footer -->
   <footer>
     <p>&copy; 2025 Blue Gulf International School</p>
@@ -241,5 +288,28 @@
 
   <!-- Icons from Font Awesome -->
   <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-</body>
-</html>
+
+  <script>
+    document.getElementById('loginForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      // Fetch the entered username and password
+      var username = document.getElementById('username').value;
+      var password = document.getElementById('password').value;
+
+      // Hardcoded users
+      var users = {
+        "Ahmed Ibrahim": "password123",
+        "Ali Mohammed": "password456"
+      };
+
+      // Check if the entered username and password are valid
+      if (users[username] === password) {
+        alert("Welcome, " + username + "!");
+        document.getElementById("error-message").textContent = "";
+        window.location.href = "profile.html"; // Redirect to profile page
+      } else {
+        document.getElementById("error-message").textContent = "Invalid username or password";
+      }
+    });
+  </
