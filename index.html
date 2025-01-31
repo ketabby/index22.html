@@ -17,6 +17,32 @@
       background-color: #d0e7ff; /* Light blue background */
     }
 
+    /* News Bar */
+    .news-bar {
+      background-color: #3a3a4f;
+      color: #fff;
+      padding: 10px;
+      text-align: center;
+      font-size: 1rem;
+      white-space: nowrap;
+      overflow: hidden;
+    }
+
+    .news-bar span {
+      display: inline-block;
+      padding-left: 100%;
+      animation: news-scroll 15s linear infinite;
+    }
+
+    @keyframes news-scroll {
+      0% {
+        transform: translateX(100%);
+      }
+      100% {
+        transform: translateX(-100%);
+      }
+    }
+
     /* Header */
     header {
       background-color: #1f1f2e;
@@ -70,39 +96,13 @@
       cursor: pointer;
     }
 
-    /* News Bar */
-    .news-bar {
-      background-color: #3a3a4f;
-      color: #fff;
-      padding: 10px;
-      text-align: center;
-      font-size: 1rem;
-      white-space: nowrap;
-      overflow: hidden;
-    }
-
-    .news-bar span {
-      display: inline-block;
-      padding-left: 100%;
-      animation: news-scroll 15s linear infinite;
-    }
-
-    @keyframes news-scroll {
-      0% {
-        transform: translateX(100%);
-      }
-      100% {
-        transform: translateX(-100%);
-      }
-    }
-
     /* Sidebar */
     .sidebar {
       width: 200px;
       height: 100vh;
       background-color: #29293f;
       position: fixed;
-      top: 60px; /* Start after the header */
+      top: 120px; /* Start after the news bar and header */
       left: 0;
       color: #fff;
       padding: 20px;
@@ -209,6 +209,11 @@
   </style>
 </head>
 <body>
+  <!-- Moving News Bar -->
+  <div class="news-bar">
+    <span>Important Announcement: The school will remain closed tomorrow due to bad weather.</span>
+  </div>
+
   <!-- Header -->
   <header>
     <div class="logo">Blue Gulf International School</div>
@@ -230,11 +235,6 @@
       </div>
     </nav>
   </header>
-
-  <!-- Moving News Bar -->
-  <div class="news-bar">
-    <span>Important Announcement: The school will remain closed tomorrow due to bad weather.</span>
-  </div>
 
   <!-- Sidebar -->
   <div class="sidebar">
@@ -312,4 +312,6 @@
         document.getElementById("error-message").textContent = "Invalid username or password";
       }
     });
-  </
+  </script>
+</body>
+</html>
