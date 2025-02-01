@@ -92,8 +92,52 @@
 
     .banner img {
       width: 100%;
+      height: auto;
+      object-fit: contain; /* Adjust to fit the banner */
+    }
+
+    /* Sidebar */
+    .sidebar {
+      width: 200px;
+      background-color: #f4f4f4;
+      position: fixed;
+      top: 80px; /* Align with header height */
+      left: 0;
       height: 100%;
-      object-fit: cover;
+      padding: 20px;
+    }
+
+    .sidebar ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .sidebar ul li {
+      margin-bottom: 10px;
+    }
+
+    .sidebar ul li a {
+      text-decoration: none;
+      color: #333;
+      display: block;
+      padding: 10px;
+    }
+
+    .sidebar ul li a:hover {
+      background-color: #ddd;
+    }
+
+    /* Newsbar */
+    .newsbar {
+      background-color: #1f1f2e;
+      color: #fff;
+      padding: 10px;
+      text-align: center;
+    }
+
+    .newsbar marquee {
+      display: block;
+      margin: 0 auto;
     }
   </style>
 </head>
@@ -121,10 +165,25 @@
     </div>
   </header>
 
+  <!-- Newsbar -->
+  <div class="newsbar">
+    <marquee behavior="scroll" direction="left">This is the news bar scrolling text.</marquee>
+  </div>
+
   <!-- Banner -->
   <div class="banner">
     <img src="gulf.png" alt="Gulf Banner">
   </div>
+
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Services</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </aside>
 
   <script>
     document.getElementById('loginForm').addEventListener('submit', function(e) {
