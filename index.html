@@ -5,8 +5,129 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Teacher Portal</title>
   <link rel="stylesheet" href="style.css"> <!-- Link to external CSS -->
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+    }
+
+    /* Header */
+    header {
+      background-color: #1f1f2e;
+      height: 60px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 20px;
+      color: #fff;
+    }
+
+    header .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+    }
+
+    nav ul li {
+      margin-left: 20px;
+    }
+
+    nav ul li a {
+      color: #fff;
+      text-decoration: none;
+      padding: 10px;
+    }
+
+    /* Login Form inside Header */
+    .login-form {
+      display: flex;
+      align-items: center;
+    }
+
+    .login-form input {
+      margin-left: 10px;
+      padding: 5px;
+      border: none;
+      border-radius: 5px;
+    }
+
+    .login-form input[type="submit"] {
+      background-color: #007bff;
+      color: white;
+      cursor: pointer;
+    }
+
+    .login-form input[type="submit"]:hover {
+      background-color: #0056b3;
+    }
+
+    /* News Bar */
+    .newsbar {
+      background-color: #3a3a4f;
+      color: white;
+      padding: 10px;
+      text-align: center;
+      font-size: 1rem;
+    }
+
+    /* Banner */
+    .banner {
+      width: 100%;
+      height: 200px; /* Adjust the height */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: white;
+      margin-top: 5px; /* Ensures it does not overlap */
+    }
+
+    .banner img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: cover;
+    }
+
+    /* Sidebar */
+    .sidebar {
+      width: 200px;
+      height: 100vh;
+      background-color: #29293f;
+      position: fixed;
+      top: 100px; /* Below header and news bar */
+      left: 0;
+      padding: 20px;
+      color: white;
+    }
+
+    .sidebar ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .sidebar ul li {
+      margin: 15px 0;
+    }
+
+    .sidebar ul li a {
+      color: white;
+      text-decoration: none;
+      display: block;
+      padding: 10px;
+    }
+  </style>
 </head>
 <body>
+
   <!-- Header -->
   <header>
     <div class="logo">Blue Gulf International School</div>
@@ -30,9 +151,14 @@
     </div>
   </header>
 
-  <!-- Newsbar -->
+  <!-- News Bar -->
   <div class="newsbar">
-    <marquee behavior="scroll" direction="left">This is the news bar scrolling text.</marquee>
+    <marquee behavior="scroll" direction="left">Important Announcement: The school will remain closed tomorrow due to bad weather.</marquee>
+  </div>
+
+  <!-- Banner (Now Properly Placed) -->
+  <div class="banner">
+    <img src="gulf.png" alt="Gulf Banner">
   </div>
 
   <!-- Sidebar -->
@@ -45,7 +171,6 @@
     </ul>
   </aside>
 
-  <!-- Banner moved to the bottom -->
   <script>
     document.getElementById('loginForm').addEventListener('submit', function(e) {
       e.preventDefault();
@@ -68,9 +193,5 @@
     });
   </script>
 
-  <!-- Banner -->
-  <div class="banner">
-    <img src="gulf.png" alt="Gulf Banner">
-  </div>
 </body>
 </html>
