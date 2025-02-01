@@ -1,7 +1,7 @@
 /* Banner */
 .banner {
-  width: 1058px; /* 28 cm */
-  height: 756px; /* 20 cm */
+  width: 1058px; /* 20 cm */
+  height: 756px; /* 25 cm */
   display: flex;
   justify-content: center;
   align-items: center;
