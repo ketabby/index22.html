@@ -123,8 +123,9 @@
       position: fixed;
       top: 140px; /* Below header and newsbar */
       left: 0;
-      height: 100%;
+      height: calc(100% - 140px); /* Fill the remaining height */
       padding: 20px;
+      color: white;
     }
 
     .sidebar ul {
@@ -145,6 +146,18 @@
 
     .sidebar ul li a:hover {
       background-color: #ddd;
+    }
+
+    /* Footer */
+    footer {
+      background-color: #1f1f2e;
+      color: white;
+      text-align: center;
+      padding: 10px 0;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      z-index: 1000;
     }
   </style>
 </head>
@@ -192,6 +205,11 @@
       <li><a href="#">Contact</a></li>
     </ul>
   </aside>
+
+  <!-- Footer -->
+  <footer>
+    <p>Contact us: Blue Gulf International School, 123 School Road, City, Country | Phone: (123) 456-7890 | Email: info@bluegulf.edu</p>
+  </footer>
 
   <script>
     document.getElementById('loginForm').addEventListener('submit', function(e) {
