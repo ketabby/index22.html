@@ -1,82 +1,7 @@
-/* Reset Styles */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  font-family: Arial, sans-serif;
-  background-color: #f4f4f4;
-}
-
-/* Header */
-header {
-  background-color: #1f1f2e;
-  height: 60px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 20px;
-  color: #fff;
-}
-
-header .logo {
-  font-size: 1.5rem;
-  font-weight: bold;
-}
-
-nav ul {
-  list-style: none;
-  display: flex;
-}
-
-nav ul li {
-  margin-left: 20px;
-}
-
-nav ul li a {
-  color: #fff;
-  text-decoration: none;
-  padding: 10px;
-}
-
-/* Login Form inside Header */
-.login-form {
-  display: flex;
-  align-items: center;
-}
-
-.login-form input {
-  margin-left: 10px;
-  padding: 5px;
-  border: none;
-  border-radius: 5px;
-}
-
-.login-form input[type="submit"] {
-  background-color: #007bff;
-  color: white;
-  cursor: pointer;
-}
-
-.login-form input[type="submit"]:hover {
-  background-color: #0056b3;
-}
-
-/* News Bar */
-.newsbar {
-  background-color: #3a3a4f;
-  color: white;
-  padding: 10px;
-  text-align: center;
-  font-size: 1rem;
-}
-
 /* Banner */
 .banner {
   width: 100%;
-  height: 200px; /* Adjust the height */
+  height: auto; /* Adjust height automatically based on image */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -85,35 +10,7 @@ nav ul li a {
 }
 
 .banner img {
-  max-width: 100%;
-  max-height: 100%;
-  object-fit: cover;
-}
-
-/* Sidebar */
-.sidebar {
-  width: 200px;
-  height: 100vh;
-  background-color: #29293f;
-  position: fixed;
-  top: 100px; /* Below header and news bar */
-  left: 0;
-  padding: 20px;
-  color: white;
-}
-
-.sidebar ul {
-  list-style: none;
-  padding: 0;
-}
-
-.sidebar ul li {
-  margin: 15px 0;
-}
-
-.sidebar ul li a {
-  color: white;
-  text-decoration: none;
-  display: block;
-  padding: 10px;
+  width: 100%;  /* Make the image fully responsive */
+  height: auto; /* Maintain the aspect ratio */
+  object-fit: cover; /* Ensures it covers the banner without distortion */
 }
