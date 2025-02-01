@@ -20,7 +20,7 @@
     /* Header */
     header {
       background-color: #1f1f2e;
-      height: 60px;
+      height: 80px;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -59,117 +59,25 @@
       background-color: #3a3a4f;
     }
 
-    header .icons {
-      display: flex;
-      align-items: center;
+    header .login-form {
+      margin-left: 20px;
     }
 
-    header .icons i {
-      font-size: 1.2rem;
-      margin-left: 15px;
+    header .login-form input {
+      padding: 5px;
+      margin-right: 5px;
+    }
+
+    header .login-form input[type="submit"] {
+      background-color: #3a3a4f;
+      color: white;
+      border: none;
+      padding: 5px 10px;
       cursor: pointer;
     }
 
-    /* News Bar */
-    .news-bar {
-      background-color: #3a3a4f;
-      color: #fff;
-      padding: 10px;
-      text-align: center;
-      font-size: 1rem;
-      white-space: nowrap;
-      overflow: hidden;
-    }
-
-    .news-bar span {
-      display: inline-block;
-      padding-left: 100%;
-      animation: news-scroll 15s linear infinite;
-    }
-
-    @keyframes news-scroll {
-      0% {
-        transform: translateX(100%);
-      }
-      100% {
-        transform: translateX(-100%);
-      }
-    }
-
-    /* Sidebar */
-    .sidebar {
-      width: 200px;
-      height: 100vh;
-      background-color: #29293f;
-      position: fixed;
-      top: 60px; /* Start after the header */
-      left: 0;
-      color: #fff;
-      padding: 20px;
-    }
-
-    .sidebar ul {
-      list-style: none;
-      padding: 0;
-    }
-
-    .sidebar ul li {
-      margin: 20px 0;
-    }
-
-    .sidebar ul li a {
-      color: #fff;
-      text-decoration: none;
-      display: block;
-      padding: 10px;
-      border-radius: 5px;
-      transition: background 0.3s;
-    }
-
-    .sidebar ul li a:hover {
-      background-color: #3a3a4f;
-    }
-
-    /* Main Content */
-    .main-content {
-      margin-left: 220px; /* Leave space for the sidebar */
-      padding: 20px;
-      background-color: #fff;
-      min-height: calc(100vh - 60px); /* Adjust for header height */
-    }
-
-    /* Card Layout */
-    .card {
-      background-color: #fff;
-      padding: 20px;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-      margin-bottom: 20px;
-    }
-
-    /* Notification Badge */
-    .badge {
-      background-color: red;
-      color: white;
-      border-radius: 50%;
-      padding: 3px 7px;
-      font-size: 0.8rem;
-      position: relative;
-      top: -10px;
-      right: -5px;
-    }
-
-    /* Login Form */
-    .login-form {
-      margin-left: 220px;
-      padding: 20px;
-    }
-
-    .login-form input {
-      display: block;
-      margin: 10px 0;
-      padding: 10px;
-      width: 200px;
+    header .login-form input[type="submit"]:hover {
+      background-color: #555;
     }
 
     /* Banner */
@@ -187,25 +95,6 @@
       height: 100%;
       object-fit: cover;
     }
-
-    /* Footer */
-    footer {
-      background-color: #1f1f2e;
-      color: #fff;
-      text-align: center;
-      padding: 20px;
-      position: relative;
-      bottom: 0;
-      width: 100%;
-    }
-
-    footer p {
-      margin: 0;
-    }
-
-    footer .contact-details {
-      margin-top: 10px;
-    }
   </style>
 </head>
 <body>
@@ -219,95 +108,40 @@
         <li><a href="#">Messages</a></li>
         <li><a href="#">Profile</a></li>
       </ul>
-      <div class="icons">
-        <i class="fas fa-bell">
-          <span class="badge">3</span> <!-- Notification badge -->
-        </i>
-        <i class="fas fa-envelope">
-          <span class="badge">5</span> <!-- Message badge -->
-        </i>
-        <i class="fas fa-user"></i>
-      </div>
     </nav>
+    
+    <!-- Login Form in Header -->
+    <div class="login-form">
+      <form id="loginForm">
+        <input type="text" id="username" name="username" placeholder="Username">
+        <input type="password" id="password" name="password" placeholder="Password">
+        <input type="submit" value="Login">
+      </form>
+      <p id="error-message" style="color: red;"></p>
+    </div>
   </header>
-
-  <!-- Moving News Bar -->
-  <div class="news-bar">
-    <span>Important Announcement: The school will remain closed tomorrow due to bad weather.</span>
-  </div>
 
   <!-- Banner -->
   <div class="banner">
-    <img src="gulf.gif" alt="Gulf Banner">
+    <img src="gulf.png" alt="Gulf Banner">
   </div>
-
-  <!-- Sidebar -->
-  <div class="sidebar">
-    <ul>
-      <li><a href="#">Dashboard</a></li>
-      <li><a href="#">Courses</a></li>
-      <li><a href="#">Assessments</a></li>
-      <li><a href="#">Assignments</a></li>
-      <li><a href="#">Messages</a></li>
-      <li><a href="#">Settings</a></li>
-    </ul>
-  </div>
-
-  <!-- Main Content -->
-  <div class="main-content">
-    <div class="card">
-      <h2>Welcome to the Teacher's Portal</h2>
-      <p>This is a teacher's dashboard where you can manage your courses, assignments, and messages. Select an option from the sidebar to get started.</p>
-    </div>
-    <div class="card">
-      <h2>Recent Notifications</h2>
-      <p>You have 3 new notifications. Click on the notification icon to view them.</p>
-    </div>
-  </div>
-
-  <!-- Login Form -->
-  <div class="login-form">
-    <h2>Login</h2>
-    <form id="loginForm">
-      <label for="username">Username</label>
-      <input type="text" id="username" name="username" placeholder="Enter your username">
-      <label for="password">Password</label>
-      <input type="password" id="password" name="password" placeholder="Enter your password">
-      <input type="submit" value="Login">
-    </form>
-    <p id="error-message" style="color: red;"></p>
-  </div>
-
-  <!-- Footer -->
-  <footer>
-    <p>&copy; 2025 Blue Gulf International School</p>
-    <div class="contact-details">
-      <p>Contact Us: +123456789 | Email: info@bluegulfintschool.com</p>
-    </div>
-  </footer>
-
-  <!-- Icons from Font Awesome -->
-  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 
   <script>
     document.getElementById('loginForm').addEventListener('submit', function(e) {
       e.preventDefault();
       
-      // Fetch the entered username and password
       var username = document.getElementById('username').value;
       var password = document.getElementById('password').value;
 
-      // Hardcoded users
       var users = {
         "Ahmed Ibrahim": "password123",
         "Ali Mohammed": "password456"
       };
 
-      // Check if the entered username and password are valid
       if (users[username] === password) {
         alert("Welcome, " + username + "!");
         document.getElementById("error-message").textContent = "";
-        window.location.href = "profile.html"; // Redirect to profile page
+        window.location.href = "profile.html";
       } else {
         document.getElementById("error-message").textContent = "Invalid username or password";
       }
