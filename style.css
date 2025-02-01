@@ -1,16 +1,18 @@
 /* Banner */
 .banner {
   width: 100%;
-  height: auto; /* Adjust height automatically based on image */
+  height: 756px; /* 20 cm in pixels */
   display: flex;
   justify-content: center;
   align-items: center;
+  overflow: hidden; /* Prevents extra image overflow */
   background-color: white;
-  margin-top: 5px; /* Ensures it does not overlap */
+  margin-top: 5px; /* Ensures proper spacing below the header */
 }
 
+/* Ensure the image fully fits the banner */
 .banner img {
-  width: 100%;  /* Make the image fully responsive */
-  height: auto; /* Maintain the aspect ratio */
-  object-fit: cover; /* Ensures it covers the banner without distortion */
+  width: 100%;  /* Make image stretch across full width */
+  height: 100%; /* Adjust height to fit the banner */
+  object-fit: cover; /* Ensures image fills the space without distortion */
 }
