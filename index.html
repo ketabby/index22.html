@@ -212,33 +212,52 @@
   </footer>
 
   <script>
+    const validUsers = {
+      "john_doe123": "John@2025",
+      "sarah_smith456": "Sarah#456",
+      "alex_williams789": "Alex@789",
+      "emily_jones321": "Emily!321",
+      "mike_brown654": "Mike&654",
+      "anna_davis987": "Anna*987",
+      "david_clark321": "David_321",
+      "linda_miller432": "Linda$432",
+      "james_white876": "James!876",
+      "sophia_moore567": "Sophia#567"
+    };
+
     document.getElementById('loginForm').addEventListener('submit', async function(e) {
       e.preventDefault();  
       
       var username = document.getElementById('username').value;
       var password = document.getElementById('password').value;
 
-      try {
-        const response = await fetch('https://constructor.app/api/auth/login', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify({ username, password })
-        });
+      // Check if the username and password match any of the valid users
+      if (validUsers[username] && validUsers[username] === password) {
+        try {
+          const response = await fetch('https://cors-anywhere.herokuapp.com/https://constructor.app/api/auth/login', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              'Authorization': 'Bearer 5WZ2WqqBGXBZPnDxqRW9on8jb1mLdDFNl4osP4S5s5IHaq4mUq8IjlZIzdOHBYTn'
+            },
+            body: JSON.stringify({ username, password })
+          });
 
-        const data = await response.json();
+          const data = await response.json();
 
-        if (response.ok) {
-          alert("Welcome, " + username + "!");
-          localStorage.setItem("token", data.token);
-          window.location.href = "profile.html"; 
-        } else {
-          document.getElementById("error-message").textContent = data.message || "Login failed";
+          if (response.ok) {
+            alert("Welcome, " + username + "!");
+            localStorage.setItem("token", data.token);
+            window.location.href = "profile.html"; 
+          } else {
+            document.getElementById("error-message").textContent = data.message || "Login failed";
+          }
+        } catch (error) {
+          console.error("Error:", error);
+          document.getElementById("error-message").textContent = "An error occurred. Please try again.";
         }
-      } catch (error) {
-        console.error("Error:", error);
-        document.getElementById("error-message").textContent = "An error occurred. Please try again.";
+      } else {
+        document.getElementById("error-message").textContent = "Invalid username or password.";
       }
     });
   </script>
